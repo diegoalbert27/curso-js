@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX-JSON</title>
+</head>
+<body>
+
+    <h1>Server Listen</h1>
+
+    <ul id="usuario"></ul>
+    
+    <script>
+        // JSON es el acronimo de Javascript Object Notation. Es un objeto Javascript pero con algunos detalles de implementacion que nos permite serializarlo para poder utilizarlo como intercambio de datos entre servicios.
+        // JSON serializado con JSON.stringify(json)
+        // JSON Devuelto a un Objeto con JSON.parse(json)
+        // Para Acceder al json utilizamos AJAX
+        // El objeto XMLhttpRequest
+    
+        var xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                
+                var respuesta = JSON.parse(xhttp.responseText);
+                var usuarios = respuesta.personas;
+                
+                var salida = ``;
+                for (var i = 0; i < usuarios.length; i++) {
+                    salida += `<li>${usuarios[i].data.name}</li>`;
+                }
+                
+                document.getElementById("usuario").innerHTML = salida;
+            }
+        }
+
+        xhttp.open("GET", "usuario.json", true);
+        xhttp.send();
+
+        // Javascript Async
+        console.log('a');
+        setTimeout(() => {
+            console.log('b');
+        }, 1000);
+        console.log('c'); 
+        
+    </script>
+</body>
+</html>

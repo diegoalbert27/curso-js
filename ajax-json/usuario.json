@@ -1,0 +1,26 @@
+{
+    "personas": [
+        {
+            "id": "010203",
+            "username": "diegohina",
+            "password": "28249248",
+            "data": {
+                "name": "Diego",
+                "email": "test@mail.com",
+                "city": "Maracay",
+                "country": "VE"
+            }
+        },
+        {
+            "id": "010203",
+            "username": "MariaT",
+            "password": "28249248",
+            "data": {
+                "name": "Maria",
+                "email": "Maria@mail.com",
+                "city": "Bogota",
+                "country": "CO"
+            }
+        }
+    ]
+}
